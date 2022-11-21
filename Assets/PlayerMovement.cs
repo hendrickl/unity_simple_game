@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     // velocity : combine la notion de vitesse et celle de direction
 
     Rigidbody rigidBody;
+    [SerializeField] float movementSpeed = 5f;
+    [SerializeField] float jumpForce = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +25,11 @@ public class PlayerMovement : MonoBehaviour
         //Get the value of the Vertical input axis.
         float verticalInput = Input.GetAxis("Vertical");
 
-        rigidBody.velocity = new Vector3(horizontalInput * 5f, rigidBody.velocity.y, verticalInput * 5f);
+        rigidBody.velocity = new Vector3(horizontalInput * movementSpeed, rigidBody.velocity.y, verticalInput * movementSpeed);
 
         if (Input.GetButtonDown("Jump"))
         {
-            rigidBody.velocity = new Vector3(rigidBody.velocity.x, 5f, rigidBody.velocity.z);
+            rigidBody.velocity = new Vector3(rigidBody.velocity.x, jumpForce, rigidBody.velocity.z);
         }
 
     }
