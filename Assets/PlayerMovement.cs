@@ -39,8 +39,5 @@ public class PlayerMovement : MonoBehaviour
         {
             GetComponent<Rigidbody>().velocity = new Vector3(-5, 0, 0);
         }
-
-
-
     }
 }
